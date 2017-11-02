@@ -1,0 +1,27 @@
+<?php
+
+include_once('config.php');
+include_once('constant.php');
+
+session_start();
+//$resumeJobskid = $_SESSION[$sessionJobSeekerId];
+
+
+$jobcategory = $_POST['jobcategory'];
+$jobtitle = $_POST['jobtitle'];
+$jobdescription = $_POST['jobdescription'];
+$salary = $_POST['salary'];
+
+
+$query2 = "INSERT INTO $JOBS_TABLE ($JOBS_EMPLOYERID,$JOBS_JOBCATEGORY,$JOBS_JOBTITLE,$JOBS_SALARY) VALUES ('12','$jobcategory','$jobtitle', '$salary')";
+
+$res = mysqli_query($db1,$query2);
+
+if($res){
+  echo 'Success';
+}
+else
+{
+  echo 'failed';
+}
+?>
